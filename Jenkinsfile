@@ -9,7 +9,7 @@ pipeline {
 		stage ('BUILD') {
 			steps {
                 sh """ 
-                ./mvnw package -DskipTests
+                unset MAVEN_CONFIG && env &&./mvnw package -DskipTests
                 """
 				echo "done with maven"
             }
