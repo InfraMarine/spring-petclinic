@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'maven' }
+    agent { label 'ecs' }
     stages {
     	stage ('CHECKOUT') {
 			steps {
