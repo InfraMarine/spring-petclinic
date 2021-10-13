@@ -9,7 +9,7 @@ pipeline {
 		stage ('BUILD') {
 			steps {
                 sh """ 
-                ./mvnw package
+                ./mvnw package -DskipTests
                 """
 				echo "done with maven"
             }
