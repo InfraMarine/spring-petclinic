@@ -1,14 +1,13 @@
 pipeline {
-    agent { label 'ecs' }
+    agent { label 'docker-ecs' }
     stages {
-    	stage ('CHECKOUT') {
-			steps {
-				checkout scm
-			}
-		}
 		stage ('BUILD') {
 			steps {
-                sh """ 
+                sh """
+				whoami
+				pwd
+				ls
+				ls /home/jenkins/
                 unset MAVEN_CONFIG && env &&./mvnw package -DskipTests
                 """
 				echo "done with maven"
