@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'docker-ecs' }
+    agent { label 'ecs-dind' }
     stages {
 		stage ('BUILD') {
 			steps {
