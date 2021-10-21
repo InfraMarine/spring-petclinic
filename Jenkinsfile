@@ -16,11 +16,11 @@ pipeline {
 		stage ('DOCKERIZE') {
 			steps {
 				script {
-				docker.withRegistry('https://232484871880.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-central-1:ecr-admin') {
-
-				def customImage = docker.build("spring-petclinic:${env.BUILD_ID}")
-
-				customImage.push()
+				docker.withRegistry('https://${ECR_URL}', 'ecr:eu-central-1:ecr-admin') {
+					sh """
+					sudo docker build -t ${ECR_URL}/spring-petclinic:${env.BUILD_ID} .
+					sudo docker push ${ECR_URL}/spring-petclinic:${env.BUILD_ID}
+					"""
 				}
 			  }
 			}
