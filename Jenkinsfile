@@ -21,7 +21,7 @@ pipeline {
 					sh "sudo ${login}"
 					sh """
 					sudo docker build -t ${ECR_URL}/spring-petclinic:${env.BUILD_ID} .
-					sudo docker push ${ECR_URL}/spring-petclinic:${env.BUILD_ID} --all-tags
+					sudo docker push ${ECR_URL}/spring-petclinic:${env.BUILD_ID}
 					"""
 				}
 				}
