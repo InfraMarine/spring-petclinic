@@ -28,12 +28,14 @@ pipeline {
 			}
         }
         stage ('Trigger deploy job') {
-        	build wait: false, job: 'petclinic-deploy-ci', parameters: [
-	        	string(name: 'AWS_REGION', value: 'eu-central-1'),
-	        	string(name: 'ECR_URL', value: '232484871880.dkr.ecr.eu-central-1.amazonaws.com'),
-	        	string(name: 'ECS_CLUSTER_NAME', value: 'petclinic-CI-QA-deploy'),
-	        	string(name: 'IMAGE_TAG', value: ${env.BUILD_ID})
-        	]
+        	steps {
+	        	build(wait: false, job: 'petclinic-deploy-ci', parameters:[
+		        	string(name: 'AWS_REGION', value: 'eu-central-1'),
+		        	string(name: 'ECR_URL', value: '232484871880.dkr.ecr.eu-central-1.amazonaws.com'),
+		        	string(name: 'ECS_CLUSTER_NAME', value: 'petclinic-CI-QA-deploy'),
+		        	string(name: 'IMAGE_TAG', value: ${env.BUILD_ID})]
+	        	)
+        	}
         }
 	}
 }
