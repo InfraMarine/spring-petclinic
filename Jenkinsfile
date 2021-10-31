@@ -29,7 +29,7 @@ pipeline {
         }
         stage ('Trigger deploy job') {
         	steps {
-	        	build(wait: false, job: 'petclinic-deploy-ci', parameters:[
+	        	build(job: 'petclinic-deploy-ci', parameters:[
 		        	string(name: 'AWS_REGION', value: 'eu-central-1'),
 		        	string(name: 'ECR_URL', value: '232484871880.dkr.ecr.eu-central-1.amazonaws.com'),
 		        	string(name: 'ECS_CLUSTER_NAME', value: 'petclinic-CI-QA-deploy'),
