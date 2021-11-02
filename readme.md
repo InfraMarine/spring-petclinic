@@ -1,4 +1,7 @@
-> ## In this fork Dockerfile and Jenkinsfile are added 
+> ## In this fork Dockerfile and Jenkinsfile are added
+> ### [This project CI/CD repository](https://github.com/InfraMarine/ci-cd-petclinic), both repos depend on each other
+
+
 # Spring PetClinic Sample Application [![Build Status](https://travis-ci.org/spring-projects/spring-petclinic.png?branch=main)](https://travis-ci.org/spring-projects/spring-petclinic/)
 
 ## Understanding the Spring Petclinic application with a few diagrams
